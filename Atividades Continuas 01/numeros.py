@@ -5,18 +5,6 @@
 
 
 def eh_primo(n):
-    num_divisores = 0 #Conta o numero de divisores de n
-    candidato = 1 #número candidato a divisor
-    while candidato <= n:
-        if n % candidato == 0:
-            num_divisores += 1
-        candidato += 1
-    if num_divisores == 2:
-        return True
-    else:
-        return False
-
-
     """Função que verifica se um número é primo
 
     Recebe um número natural n, com n >= 2, e retorna verdadeiro se
@@ -41,8 +29,14 @@ def eh_primo(n):
     bool
         True se n for um número primo e False caso contrário.
     """
-
-
+    num_divisores = 0 #Conta o numero de divisores de n
+    for i in range(1, n+1):
+        if n % i == 0:
+            num_divisores += 1
+    if num_divisores == 2:
+        return True
+    else:
+        return False
 
 
 def lista_primos(n):
@@ -64,7 +58,11 @@ def lista_primos(n):
         descrição : Lista com todos os números primos menores
             que n, em ordem crescente.
     """
-    pass
+    primos_encontrados = [] # Começa com uma lista vazia
+    for i in range(2, n): # Varia i de 2 até n-1
+        if eh_primo(i):
+            primos_encontrados.append(i)
+    return primos_encontrados
 
 
 def conta_primos(s):
