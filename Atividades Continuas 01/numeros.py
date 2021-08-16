@@ -1,7 +1,7 @@
 # Programação Orientada a Objetos
 # AC01 ADS-EaD - Números especiais
 #
-# Email Impacta: __________@aluno.faculdadeimpacta.com.br
+# Email Impacta: otavio.goncalves@aluno.faculdadeimpacta.com.br
 
 
 def eh_primo(n):
