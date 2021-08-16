@@ -1,57 +1,3 @@
-Programação Orientada a Objetos
-202102 - EAD - ADS 2B
-Mural
-Atividades
-Pessoas
-Todos os tópicos
-Lives - Transmissão ao vivo
-Material de estudo
-Dúvidas sobre o conteúdo
-Atividades contínuas
-Lives - Transmissão ao vivo
-Lives - Transmissão ao vivo
-Material
-Live 1 - 14 de agosto - 10h
-Item postado em 14 de ago.
-Material
-Link das lives (Sábados das 10h até 12h)
-Item postado em 9 de ago.
-Material de estudo
-Material de estudo
-Material
-Teste para AC1
-Item postado em 12 de ago.
-Código em Python para ajudá-los a verificar se a AC1 está funcionando corretamente. Copiem esse arquivo para a mesma pasta do arquivo numeros.py
-
-Atenção: NÃO ENTREGUE O ARQUIVO test_numeros.py JUNTO COM A SUA SUBMISSÃO!!!
-
-test_numeros.py
-Texto
-Concluída Pergunta
-Qual dia e horário você acha melhor para realizarmos as nossas Lives semanais?
-Data de entrega: 8 de ago. 23:59
-Material
-Conteúdo da disciplina
-10
-10 comentários
-Última edição: 2 de ago.
-Dúvidas sobre o conteúdo
-Dúvidas sobre o conteúdo
-Material
-Dúvidas do conteúdo da UNIDADE 01
-7
-7 comentários
-Item postado em 2 de ago.
-Material
-Dúvidas do conteúdo da UNIDADE 02
-Item postado em 14 de ago.
-Atividades contínuas
-Atividades contínuas
-Atividade
-Atividade contínua 01
-13
-13 comentários
-Data de entrega: 22 de ago. 23:59
 """
 Atenção: NÃO ENTREGUE ESSE ARQUIVO JUNTO COM A SUA SUBMISSÃO
 
@@ -169,5 +115,3 @@ print_cabecalho("função lista_perfeitos")
 print('números perfeitos de 2 até 1000:')
 print('resposta obtida:  ', numeros.lista_perfeitos(1000))
 print('resposta esperada:', [6, 28, 496])
-test_numeros.py
-Exibindo test_numeros.py.
