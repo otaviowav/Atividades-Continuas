@@ -15,7 +15,16 @@ def lista_primos(n):
             primos_encontrados.append(i)
     return primos_encontrados
 
+def conta_primos(s):
+    i = 0
+    while i <= len(s):
+        if eh_primo(s[i]):
+            pass
+            i += 1
+
+lista = [11, 2, 3, 4, 11, 2, 5, 2]
+conta_primos(lista)
 #Programa principal
-print("O Resultado da função é:", lista_primos(10))
+#print("O Resultado da função é:", lista_primos(10))
 
 
