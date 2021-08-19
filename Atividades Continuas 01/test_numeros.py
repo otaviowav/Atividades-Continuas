@@ -77,7 +77,7 @@ if pausar:
 # --------------------------------------------------------------------- #
 print_cabecalho("função eh_armstrong")
 testes = [0, 5, 15, 28, 153]
-respostas = [True, True, False, False, True]
+respostas = [False, True, False, False, True]
 compara_respostas(numeros.eh_armstrong, testes, respostas)
 
 if pausar:

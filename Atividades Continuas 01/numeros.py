@@ -97,7 +97,15 @@ def conta_primos(s):
             o total de ocorrências do número primo na
             sequência s.
     """
-    pass
+    lista = sorted(s)
+    dicionario = dict()
+    for x in lista:
+        if eh_primo(x):
+            if x in dicionario:
+                dicionario[x] += 1
+            else:
+                dicionario[x] = 1
+    return dicionario
 
 
 def eh_armstrong(n):
@@ -126,7 +134,17 @@ def eh_armstrong(n):
     bool
         True se n for um número de Armstrong e False caso contrário.
     """
-    pass
+    ord = len(str(n))
+    c = 0
+    aux = n
+    while aux > 0:
+        digit = aux % 10
+        c += digit ** ord
+        aux //= 10
+    if (n == c) and (n != 0):
+        return True
+    else:
+        return False
 
 
 def eh_quase_armstrong(n):
@@ -156,7 +174,17 @@ def eh_quase_armstrong(n):
     bool
         True se n for um número quase de Armstrong e False caso contrário.
     """
-    pass
+    ord = len(str(n))
+    c = 0
+    aux = n
+    while aux > 0:
+        digit = aux % 10
+        c += digit ** ord
+        aux //= 10
+    if (n == c-1) or (n == c+1) and (n >= 0):
+        return True
+    else:
+        return False
 
 
 def lista_armstrong(n):
@@ -177,7 +205,12 @@ def lista_armstrong(n):
         descrição : Uma lista contendo todos os números de Armstrong
             menores que n, em ordem crescente.
     """
-    pass
+    armstrong = []
+    for y in range(2, n):
+        if eh_armstrong(y):
+            print(f'Armstrong achado: {y}')
+            armstrong.append(y)
+    return armstrong
 
 
 def eh_perfeito(n):
@@ -207,7 +240,14 @@ def eh_perfeito(n):
     bool
         True se n for um número perfeito e False caso contrário.
     """
-    pass
+    total = 0
+    for div in range(1, n):
+        if n % div == 0:
+            total += div
+    if n == total:
+        return True
+    else:
+        return False
 
 
 def lista_perfeitos(n):
@@ -229,4 +269,10 @@ def lista_perfeitos(n):
         descrição : Uma lista contendo todos os números perfeitos
             menores que n em ordem crescente.
     """
-    pass
+    lista = []
+
+    for valor in range(1, n-1):
+        if(eh_perfeito(valor)):
+            print(f'Numero perfeito encontrado: {valor}')
+            lista.append(valor)
+    return lista
