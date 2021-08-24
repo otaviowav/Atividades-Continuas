@@ -6,10 +6,6 @@ class Conta:
             self.__saldo_inicial = saldo_inicial
 
 
-if __name__ == '__main__':
-    conta1 = Conta('João Medeiros', 234, 1)
-		
-	
     @property
 	def titular(self):
 		"""
@@ -26,23 +22,18 @@ if __name__ == '__main__':
 	
 	@property
 	def numero(self):
-		"""
-		Implemente a property numero
-		"""
+		return self.numero
 		pass
 	
 	@property
 	def saldo(self):
-		"""
-		Implemente a property saldo
-		"""
+		return self.__saldo_inicial
 		pass
 	
 	@property
 	def ativa(self):
-		"""
-		Implemente a property ativa
-		"""
+		self.ativa = False
+        
 		pass
 	
 	@ativa.setter
@@ -53,15 +44,11 @@ if __name__ == '__main__':
 		pass
 	
 	def depositar(self, valor):
-		"""
-		Implemente o método depositar()
-		"""
+		self.__saldo_inicial += valor
 		pass
 
 	def sacar(self, valor):
-		"""
-		Implemente o método sacar()
-		"""
+		self.__saldo_inicial -= valor
 		pass
 
 	def transferir(self, conta_destino, valor):
