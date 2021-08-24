@@ -1,21 +1,16 @@
 class Conta:
-
 	def __init__(self, titular, agencia, numero, saldo_inicial):
-		"""
-		Crie os atributos da classe e inicie seus respectivos valores de acordo
-		com as especificações.
-		"""
-        self.__titular = titular
-        self.__agencia = agencia
-        self.__numero = numero
-        self.__saldo_inicial = saldo_inicial
+            self.__titular = titular
+            self.__agencia = agencia
+            self.__numero = numero
+            self.__saldo_inicial = saldo_inicial
 
 
 if __name__ == '__main__':
     conta1 = Conta('João Medeiros', 234, 1)
 		
 	
-	@property
+    @property
 	def titular(self):
 		"""
 		Implemente a property titular
