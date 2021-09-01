@@ -100,79 +100,67 @@ Parte 4) implemente os seguintes métodos públicos:
 
 """
 
+
 class Conta:
 
-	def __init__(self, titular, agencia, numero, saldo_inicial):
-		"""
-		Crie os atributos da classe e inicie seus respectivos valores de acordo
-		com as especificações.
-		"""
-		pass
-	
-	@property
-	def titular(self):
-		"""
-		Implemente a property titular
-		"""
-		pass
+    def __init__(self, titular, agencia, numero, saldo_inicial):
+    	self.__titular = titular
+    	self.__agencia = agencia
+    	self.__numero = numero
+    	self.__saldo_inicial = 0
+    	self.__ativa = True
+    	self.__operacoes = [('saldo inicial', saldo_inicial)]
 
-	@property
-	def agencia(self):
-		"""
-		Implemente a property agencia
-		"""
-		pass
-	
-	@property
-	def numero(self):
-		"""
-		Implemente a property numero
-		"""
-		pass
-	
-	@property
-	def saldo(self):
-		"""
-		Implemente a property saldo
-		"""
-		pass
-	
-	@property
-	def ativa(self):
-		"""
-		Implemente a property ativa
-		"""
-		pass
-	
-	@ativa.setter
-	def ativa(self, situacao):
-		"""
-		Implemente o setter ativa
-		"""
-		pass
-	
-	def depositar(self, valor):
-		"""
-		Implemente o método depositar()
-		"""
-		pass
+    @property
+    def titular(self):
+        return self.__titular
 
-	def sacar(self, valor):
-		"""
-		Implemente o método sacar()
-		"""
-		pass
+    @property
+    def agencia(self):
+        return self.__agencia
 
-	def transferir(self, conta_destino, valor):
-		"""
-		Implemente o método transferencia()
-		"""
-		pass
-	
-	def tirar_extrato(self):
-		"""
-		Implemente o método tirar_extrato()
-		"""
-		pass
+    @property
+    def numero(self):
+        return self.__numero
 
+    @property
+    def saldo(self):
+        return self.__saldo_inicial
 
+    @property
+    def ativa(self):
+        self.__ativa = False
+
+    @ativa.setter
+    def ativa(self, situacao):
+        self.__ativa = situacao
+        #if situacao == 1:
+        #    return True
+        #    print('Conta ativa')
+        #if situacao == 2:
+        #    return False
+        #    print('Conta desativada')
+
+    def depositar(self, valor):
+        if valor < 0:
+            return 'O valor deve ser positivo'
+        self.__saldo_inicial += valor
+
+    def sacar(self, valor):
+        if valor < 0:
+            return 'O valor deve ser positivo'
+        if valor > self.__saldo_inicial:
+            return 'Saldo insuficiente'
+        self.__saldo_inicial -= valor
+
+    def transferir(self, conta_destino, valor):
+        """
+        Implemente o método transferencia()
+        """
+        pass
+
+    def tirar_extrato(self):
+        """
+        Implemente o método tirar_extrato()
+        """
+        pass
