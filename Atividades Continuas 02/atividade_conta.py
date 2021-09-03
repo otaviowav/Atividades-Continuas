@@ -108,7 +108,7 @@ class Conta:
     	self.__agencia = agencia
     	self.__numero = numero
     	self.__saldo_inicial = 0
-    	self.__ativa = True
+    	self.__ativa = False
     	self.__operacoes = [('saldo inicial', saldo_inicial)]
 
     @property
