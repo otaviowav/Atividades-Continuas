@@ -253,3 +253,7 @@ def test_conta_tirar_extrato_apos_operacoes():
 		else:
 			raise AssertionError('O método tirar_extrato() retorna uma lista de operações com valores diferentes aos esperados')	
 
+
+if __name__ == '__main__':
+	pytest.main()
+

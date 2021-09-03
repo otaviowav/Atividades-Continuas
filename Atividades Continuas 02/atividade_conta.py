@@ -107,7 +107,7 @@ class Conta:
     	self.__titular = titular
     	self.__agencia = agencia
     	self.__numero = numero
-    	self.__saldo_inicial = 0
+    	self.__saldo = saldo_inicial
     	self.__ativa = False
     	self.__operacoes = [('saldo inicial', saldo_inicial)]
 
@@ -125,42 +125,32 @@ class Conta:
 
     @property
     def saldo(self):
-        return self.__saldo_inicial
+        return self.__saldo
 
     @property
     def ativa(self):
-        self.__ativa = False
+        return self.__ativa
 
     @ativa.setter
     def ativa(self, situacao):
-        self.__ativa = situacao
-        #if situacao == 1:
-        #    return True
-        #    print('Conta ativa')
-        #if situacao == 2:
-        #    return False
-        #    print('Conta desativada')
-
+        if isinstance(situacao, bool):
+        	self.__ativa = situacao
+        
     def depositar(self, valor):
-        if valor < 0:
-            return 'O valor deve ser positivo'
-        self.__saldo_inicial += valor
+        if(self.__ativa is True and valor > 0):
+        	self.__saldo += valor
+        	self.__operacoes.append(('deposito', valor))
 
     def sacar(self, valor):
-        if valor < 0:
-            return 'O valor deve ser positivo'
-        if valor > self.__saldo_inicial:
-            return 'Saldo insuficiente'
-        self.__saldo_inicial -= valor
+        if(self.__ativa is True and valor > 0 and valor <= self.__saldo):
+        	self.__saldo -= valor
+        	self.__operacoes.append(('saque', valor))
 
     def transferir(self, conta_destino, valor):
-        """
-        Implemente o método transferencia()
-        """
-        pass
+        if(self.__ativa is True and conta_destino.ativa is True and valor > 0 and valor <= self.__saldo):
+        	self.__saldo -= valor
+        	conta_destino.__saldo += valor
+        	self.__operacoes.append(('transferencia', valor))
 
     def tirar_extrato(self):
-        """
-        Implemente o método tirar_extrato()
-        """
-        pass
+        return self.__operacoes
