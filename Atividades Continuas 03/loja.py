@@ -78,7 +78,7 @@ class Produto:
 		"""
 		return self.__preco
 
-class ProdutoFisico:
+class ProdutoFisico(Produto):
 	"""
 	Classe ProdutoFisico: deve representar os elementos básicos de um produto físico.
 	Esta classe herda da classe Produto.
@@ -151,7 +151,7 @@ class ProdutoFisico:
 		frete = (self.__peso / 1000) * 5 + self.preco
 		return frete
 
-class ProdutoEletronico:
+class ProdutoEletronico(ProdutoFisico):
 	"""
 	Classe ProdutoEletronico: deve representar os elementos básicos de um produto eletrônico.
 	Esta classe herda da classe ProdutoFisico.
@@ -229,7 +229,7 @@ class ProdutoEletronico:
 		"""
 		return super().calcular_preco_com_frete() * 1.01
 
-class Ebook:
+class Ebook(Produto):
 	"""
 	Classe Ebook: deve representar os elementos básicos de um ebook (livro digital).
 	Esta classe herda da classe Produto.
