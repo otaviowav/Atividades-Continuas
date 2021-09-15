@@ -17,24 +17,22 @@ class Produto:
 		disso, utilize os setters "nome" e "preco" para inicializá-los indiretamente,
 		pois dessa forma eles serão validados (veja a descrição dos setters na sequência).
 		"""
-		pass
-
+		self.nome = nome
+		self.preco = preco
 	
 	@property
 	def nome(self):
 		"""
 		Property nome: devolve (retorna) o valor do atributo privado nome.
 		"""
-		pass
-
+		return self.__nome
 	
 	@property
 	def preco(self):
 		"""
 		Property preco: devolve (retorna) o valor do atributo privado preco.
 		"""
-		pass
-
+		return self.__preco
 	
 	@nome.setter
 	def nome(self, novo_nome):
@@ -46,8 +44,12 @@ class Produto:
 		da string novo_nome é maior que zero. Se for igual a zero, lance uma exceção
 		do tipo ValueError.
 		"""
-		pass
-
+		if not isinstance(novo_nome, str):
+			raise TypeError
+		elif len(novo_nome) > 0:
+			self.__nome = novo_nome
+		else:
+			raise ValueError
 	
 	@preco.setter
 	def preco(self, novo_preco):
@@ -62,16 +64,19 @@ class Produto:
 		ou igual a zero. Se for menor que zero (negativo), lance uma exceção do tipo
 		ValueError.
 		"""
-		pass
-
+		if not isinstance(novo_preco, (int, float)):
+			raise TypeError
+		elif novo_preco >= 0:
+			self.__preco = novo_preco
+		else:
+			raise ValueError
 	
 	def calcular_preco_com_frete(self):
 		"""
 		Método que calcula o valor final do produto com o frete incluso.
 		Deve devolver (retornar) o valor do atributo privado preco.
 		"""
-		pass
-
+		return self.__preco
 
 class ProdutoFisico:
 	"""
@@ -88,16 +93,15 @@ class ProdutoFisico:
 		Ao invés disso, utilize o setter "peso" para inicializá-lo indiretamente,
 		pois dessa forma ele será validado.
 		"""
-		pass
-	
+		super().__init__(nome, preco)
+		self.peso = peso	
 
 	@property
 	def peso(self):
 		"""
 		Property peso: devolve (retorna) o valor do atributo privado peso.
 		"""
-		pass
-	
+		return self.__peso	
 
 	@peso.setter
 	def peso(self, novo_peso):
@@ -111,8 +115,12 @@ class ProdutoFisico:
 		Caso novo_peso seja do tipo int, verifique se seu valor é maior que zero.
 		Se for menor ou igual a zero, lance uma exceção do tipo ValueError.
 		"""
-		pass
-
+		if not isinstance(novo_peso, int):
+			raise TypeError
+		elif novo_peso > 0:
+			self.__peso = novo_peso
+		else:
+			raise ValueError
 	
 	def peso_em_kg(self):
 		"""
@@ -123,8 +131,8 @@ class ProdutoFisico:
 			- Se o valor do atributo privado peso for 7500, este método retorna 7.5;
 			- Se o valor do atributo privado peso for 600, este método retorna 0.6;
 		"""
-		pass
-
+		kg = float(1000)
+		return self.__peso / kg
 
 	def calcular_preco_com_frete(self):
 		"""
@@ -140,8 +148,8 @@ class ProdutoFisico:
 			- Se o produto (preço) custa R$10 e seu peso é 100 gramas, retorna R$10.5;
 			
 		"""
-		pass
-
+		frete = (self.__peso / 1000) * 5 + self.preco
+		return frete
 
 class ProdutoEletronico:
 	"""
@@ -161,24 +169,23 @@ class ProdutoEletronico:
 			- O atributo privado tempo_garantia deve ser inicializado diretamente
 			no construtor, sem necessidade de validação.
 		"""
-		pass
-
+		super().__init__(nome, preco, peso)
+		self.tensao = tensao
+		self.__tempo_garantia = tempo_garantia
 	
 	@property
 	def tensao(self):
 		"""
 		Property tensao: devolve (retorna) o valor do atributo privado tensao.
 		"""
-		pass
-
+		return self.__tensao
 
 	@property
 	def tempo_garantia(self):
 		"""
 		Property tempo_garantia: devolve (retorna) o valor do atributo privado tempo_garantia.
 		"""
-		pass
-
+		return self.__tempo_garantia
 	
 	@tensao.setter
 	def tensao(self, nova_tensao):
@@ -195,8 +202,12 @@ class ProdutoEletronico:
 		127 ou 220. Caso nova_tensao seja diferente desses valores, lance uma 
 		exceção do tipo ValueError.
 		"""
-		pass
-
+		if not isinstance(nova_tensao, int):
+			raise TypeError
+		elif nova_tensao == 0 or nova_tensao == 127 or nova_tensao == 220:
+			self.__tensao = nova_tensao
+		else:
+			raise ValueError
 
 	def calcular_preco_com_frete(self):
 		"""
@@ -216,8 +227,7 @@ class ProdutoEletronico:
 			- Se o produto (preço) custa R$50 e seu peso é 2000 gramas, retorna R$60.6;
 			- Se o produto (preço) custa R$10 e seu peso é 800 gramas, retorna R$14.14;
 		"""
-		pass
-
+		return super().calcular_preco_com_frete() * 1.01
 
 class Ebook:
 	"""
@@ -237,8 +247,9 @@ class Ebook:
 			construtor.	Ao invés disso, utilize o setter "numero_paginas" para
 			inicializá-lo indiretamente, pois dessa forma ele será validado.
 		"""
-		pass
-	
+		super().__init__(nome, preco)
+		self.__autor = autor
+		self.numero_paginas = numero_paginas	
 
 	@property
 	def nome_exibicao(self):
@@ -253,8 +264,7 @@ class Ebook:
 			- Se nome é "O senhor dos anéis" e autor é "J. R. R. Tolkien", deve
 			devolver (retornar) uma string com: "O senhor dos anéis (J. R. R. Tolkien)";
 		"""
-		pass
-
+		return '%s (%s)' % (self._Produto__nome, self.__autor)
 
 	@property
 	def numero_paginas(self):
@@ -262,8 +272,7 @@ class Ebook:
 		Property numero_paginas: devolve (retorna) o valor do atributo 
 		privado numero_paginas.
 		"""
-		pass
-	
+		return self.__numero_paginas	
 
 	@numero_paginas.setter
 	def numero_paginas(self, valor):
@@ -275,7 +284,9 @@ class Ebook:
 		se o valor é maior que zero. Caso contrário (se valor for menor ou igual
 		a zero), lance um erro do tipo ValueError.
 		"""
-		pass
-
-
-
+		if not isinstance(valor, int):
+			raise TypeError
+		elif valor > 0:
+			self.__numero_paginas = valor
+		else:
+			raise ValueError
